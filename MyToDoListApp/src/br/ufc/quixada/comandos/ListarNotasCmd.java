@@ -23,7 +23,8 @@ public class ListarNotasCmd implements ICmd {
 		HttpSession sessao = request.getSession();
 		
 		try {
-			ArrayList<Nota> notas = new ArrayList<Nota>();
+					ArrayList<Nota> notas = new ArrayList<Nota>();
+					notas = daoNota.listarNotas();
 					sessao.setAttribute("listaNota",notas);
 					response.sendRedirect("listar.jsp");
 					

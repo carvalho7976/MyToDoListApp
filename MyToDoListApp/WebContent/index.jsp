@@ -10,12 +10,12 @@
 <body>
 		<h1>Olá</h1>
 		
-		<input type=button	onClick="location.href='/ToDoListApp/cadastrar.jsp'"   value='Criar Nota'>
+		<input type=button	onClick="location.href='/MyToDoListApp/cadastrar.jsp'"   value='Criar Nota'>
 			<form action="ServletCentral" method="post">
 				<input type="hidden" name="acao" value="listarNotas" />
 				<input type="submit"	 value='Listar Notas'>
 			</form>
-		<input type=button	onClick="location.href='/ToDoListApp/index.jsp'"	value='Cancelar'>
+		
 		
 </body>
 </html>

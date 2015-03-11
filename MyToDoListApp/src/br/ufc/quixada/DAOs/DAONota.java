@@ -15,7 +15,7 @@ public class DAONota {
 	private Connection con;
 
 	public DAONota() {
-		this.con = this.getConnection();
+		this.con = getConnection();
 	}
 	private Connection getConnection(){
 		ConnectionFactory factory = new ConnectionFactory();
@@ -25,10 +25,14 @@ public class DAONota {
 	public boolean criarNota(Nota nota) throws SQLException {
 		PreparedStatement p = con
 				.prepareStatement("insert into nota (id, status, texto) values (?, ?, ?)");
-		p.setInt(1, nota.getId());
 		p.setBoolean(2, nota.getStatus());
 		p.setString(3, nota.getTexto());
-		
+		ArrayList<Nota> notas = listarNotas();
+		if(notas.size()<1){
+			p.setInt(1, nota.getId());
+		}else{
+			p.setInt(1, notas.get(notas.size()-1).getId()+1);
+		}
 		if(p.execute()){
 			p.close();
 			return true;
@@ -40,8 +44,8 @@ public class DAONota {
 
 	public boolean removerNota(int idNota) throws SQLException {
 		PreparedStatement p = con
-				.prepareStatement("dele from nota where id=?");
-		p.setString(1, ""+idNota);
+				.prepareStatement("delete from nota where id=?");
+		p.setInt(1, idNota);
 		if(p.execute()){
 			p.close();
 			return true;
@@ -52,7 +56,7 @@ public class DAONota {
 	}
 
 	public ArrayList<Nota> listarNotas() throws SQLException {
-		List<Nota> notas = new ArrayList<Nota>();
+		ArrayList<Nota> notas = new ArrayList<Nota>();
 		   PreparedStatement p = con.prepareStatement("select * from nota");
 		   ResultSet rs = p.executeQuery();
 		   while(rs.next()){
@@ -61,7 +65,8 @@ public class DAONota {
 		      nota.setStatus(rs.getBoolean("status"));
 		      nota.setTexto(rs.getString("texto"));
 		      notas.add(nota);
+		      
 		   }
-		return null;
+		return notas;
 	}
 }

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.ufc.quixada.comandos.CriarNotaCmd;
 import br.ufc.quixada.comandos.ListarNotasCmd;
+import br.ufc.quixada.comandos.RemoverNotaCmd;
 import br.ufc.quixada.iterfaces.ICmd;
 
 /**
@@ -27,20 +28,17 @@ public class MainServlet extends HttpServlet {
         super();
         mapaDeAcoes.put("criarNotaCmd", new CriarNotaCmd());
         mapaDeAcoes.put("listarNotas", new ListarNotasCmd());
+        mapaDeAcoes.put("removerNotaCmd", new RemoverNotaCmd());
     }
 
 	
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		System.out.println("entrando...");
-		if(request == null) System.out.println("estou vindo nulo, ");
-    	String acao = request.getParameter("acao");
+		  	String acao = request.getParameter("acao");
 		try{
 			ICmd comando = mapaDeAcoes.get(acao);
-			System.out.println(comando.getClass().getName());
 			comando.executar(request, response);
 			
 		}catch(Exception e){
-			System.out.println("ahhhhhhhh fudeu");
 			e.printStackTrace();
 		}
 	}
@@ -50,8 +48,6 @@ public class MainServlet extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.sendRedirect("index.jsp");
 		processRequest(request, response);
 	}
 

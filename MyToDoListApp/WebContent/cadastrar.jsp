@@ -13,10 +13,10 @@
 		<h3>Criar Nota</h3>
 		<form action="ServletCentral" method="post">
 			<input type="hidden" name="acao" value="criarNotaCmd" />
-			<input type="text" name="texto"/> 
+			<textarea rows="5" cols="50" type="text" name="texto"> </textarea> 
 			<input type="submit"	 value='Salvar'/>
 		</form>
-			<input type=button	onClick="location.href='/ToDoListApp/index.jsp'"
+			<input type=button	onClick="location.href='/MyToDoListApp/index.jsp'"
 			value='Cancelar'>
 		
 		
