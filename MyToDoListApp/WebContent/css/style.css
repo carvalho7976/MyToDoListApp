@@ -1,0 +1,90 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing:borde-box;
+}
+html{
+	overflow-y:hidden;
+}
+body{
+	background: url(../bg.png)#F55656;
+}
+
+.main-content{
+	width:40%;
+	height:300px;
+	margin: auto;
+	margin-top: 200px;
+	box-shadow: 0px 0px 2px rgba(0,0,0,0.3);
+}
+
+h1,h3{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 86px;
+	padding-top: 80px;
+	letter-spacing:-7px;
+	text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+	color: white;
+	text-align: center;
+	
+}
+
+h4{
+	font-family: 'Rosario', sans-serif;
+	color: rgba(0,0,0,0.2);
+}
+
+.botao{
+	border-radius: 0;
+	border:none;
+	width: 60px;
+}
+.flutua{
+	float:right;	
+}
+
+.main-form{
+	width:40%;
+	margin: auto;
+	margin-top:60px;
+	
+}
+
+textarea{
+	width:545px;
+	resize:none;
+}
+
+.section-buttons{
+	width:30%;
+	margin: auto;
+}
+
+.table{
+	width:80%;
+	margin:auto;
+	margin-top:50px;
+	background-color:white !important;
+	border:none;
+}
+th,td{
+	font-family: 'Montserrat', sans-serif;
+	text-align:center !important;
+	border:1px solid #ccc;
+}
+
+.section-buttons-lista{
+	width:30%;
+	margin: auto;
+	padding-top:40px;
+}
+
+.empty-list-header{
+	font-size:50px;
+}
+
+.vazio{
+	margin-left:180px;
+	margin-top:20px;
+	text-align:center;
+}

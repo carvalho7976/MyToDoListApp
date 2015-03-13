@@ -6,16 +6,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Rosario' rel='stylesheet' type='text/css'>
 <title>MyToDoListApp</title>
 </head>
 <body>
-	<div id ="div-centro-listar">
-	<h1 align="center">Notas adicionadas </h1>
+	<div id ="main-content">
+	<h1>Notas Adicionadas </h1>
 	<%List<Nota> notas = (ArrayList<Nota>) session.getAttribute("listaNota");%>
 		<%if (notas != null && !notas.isEmpty()) {%>
-		<form action="ServletCentral" method="post" class="form-horizontal">
+		<form action="ServletCentral" method="post" class="main-form">
 			<table border="1" align="center" class="table">
 				<% for (int i = 0; i < notas.size(); i++) {	%>
 					<tr>
@@ -33,18 +36,22 @@
 		
 					<%}%>
 			</table>
-			<input type="hidden" name="acao" value="removerNotaCmd" />
-			<input  type=button	onClick="location.href='/MyToDoListApp/index.jsp'"	value='Voltar' class="btn">
-			<input type="submit" value='Salvar' class="btn btn-success"/>
+			<section class="section-buttons-lista">
+				<input type="hidden" name="acao" value="removerNotaCmd" />
+				<input  type=button	onClick="location.href='/MyToDoListApp/index.jsp'"	value='Voltar' class="btn botao">
+				<input type="submit" value='Salvar' class="btn btn-success botao flutua"/>
+			<section>	
 		</form>	
 		<%}else{%>
-			<h3>Lista vazia</h3>
-			<input  type=button	onClick="location.href='/MyToDoListApp/index.jsp'" class="btn"	value='Voltar'>
+			<h3 class="empty-list-header">Lista vazia</h3>
+			<section class="section-buttons">
+				<input  type=button	onClick="location.href='/MyToDoListApp/index.jsp'" class="btn botao vazio"	value='Voltar'>
+			</section>
 		<%} %>
 		
 	</div>
 		<div id="rodape">
-			<h4 align="center" >@2015 Gerência de Configuração</h4>
+			<h4>&copy Gerência de Configuração 2015 </h4>
 		</div>
 </body>
 </html>
