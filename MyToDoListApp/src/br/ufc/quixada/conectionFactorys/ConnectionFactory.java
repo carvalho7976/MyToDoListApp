@@ -12,7 +12,7 @@ public class ConnectionFactory {
 		  try {
 			   Class.forName("org.postgresql.Driver");
 			   Connection con = DriverManager.getConnection(
-				          "jdbc:postgresql://localhost:5432/ToDoList", "postgres", "1234");
+				          "jdbc:postgresql://localhost:5433/ToDoList", "postgres", "leuson");
 	            return con;
 	        } catch (SQLException e) {
 	            throw new RuntimeException(e);
