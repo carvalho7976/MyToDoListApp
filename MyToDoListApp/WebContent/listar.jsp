@@ -7,14 +7,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ToDo List</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<title>MyToDoListApp</title>
 </head>
 <body>
-	<h1 align="center">Meu ToDo List</h1>
+	<div id ="div-centro-listar">
+	<h1 align="center">Notas adicionadas </h1>
 	<%List<Nota> notas = (ArrayList<Nota>) session.getAttribute("listaNota");%>
 		<%if (notas != null && !notas.isEmpty()) {%>
-		<form action="ServletCentral" method="post">
-			<table border="1" align="center">
+		<form action="ServletCentral" method="post" class="form-horizontal">
+			<table border="1" align="center" class="table">
 				<% for (int i = 0; i < notas.size(); i++) {	%>
 					<tr>
 						<th align="center">Feito?/!</th>
@@ -22,8 +24,7 @@
 					</tr>
 						<tr>
 						<td align="center">
-							<%if(notas.get(i).status()){%> <input type="checkbox" name="IDnotas" checked="checked" value="<%notas.get(i).getId();%>"/> 
-							<%}	else{%> <input type="checkbox" name="IDnotas" value="<%= notas.get(i).getId()%>"/> <%} %>
+							<%if(notas.get(i).status()){%> <input type="checkbox" name="IDnotas" checked="checked" value="<%notas.get(i).getId();%>"/> 							<%}	else{%> <input type="checkbox" name="IDnotas" value="<%= notas.get(i).getId()%>"/> <%} %>
 					</td>
 					<td align="center">
 						<% out.print(notas.get(i).getTexto());%>
@@ -33,12 +34,17 @@
 					<%}%>
 			</table>
 			<input type="hidden" name="acao" value="removerNotaCmd" />
-			<input type="submit"	 value='Salvar'/>
+			<input  type=button	onClick="location.href='/MyToDoListApp/index.jsp'"	value='Voltar' class="btn">
+			<input type="submit" value='Salvar' class="btn btn-success"/>
 		</form>	
 		<%}else{%>
 			<h3>Lista vazia</h3>
+			<input  type=button	onClick="location.href='/MyToDoListApp/index.jsp'" class="btn"	value='Voltar'>
 		<%} %>
-		<input  type=button	onClick="location.href='/MyToDoListApp/index.jsp'"	value='Voltar'>
-		<h4 align="center" >&#169; 2015 Gerencia de Configuracao</h4>
+		
+	</div>
+		<div id="rodape">
+			<h4 align="center" >@2015 Gerência de Configuração</h4>
+		</div>
 </body>
 </html>

@@ -5,21 +5,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Criar nota</title>
-<link href="css/todolist.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
 	
+		<div id ="div-centro">
+			<h3 >Criar Nota</h3>
+			<form action="ServletCentral" method="post" class="form-horizontal">
+				<input type="hidden" name="acao" value="criarNotaCmd" />
+				<textarea rows="5" cols="50" type="text" name="texto"> </textarea> <br/>
+				<input type="button" class="btn"	onClick="location.href='/MyToDoListApp/index.jsp'" value='Cancelar'>
+				<input type="submit"	 value='Salvar' class="btn btn-success"/>
+			</form>
+		</div>	
 		
-		<h3>Criar Nota</h3>
-		<form action="ServletCentral" method="post">
-			<input type="hidden" name="acao" value="criarNotaCmd" />
-			<textarea rows="5" cols="50" type="text" name="texto"> </textarea> 
-			<input type="submit"	 value='Salvar'/>
-		</form>
-			<input type=button	onClick="location.href='/MyToDoListApp/index.jsp'"
-			value='Cancelar'>
-		
-		
+		<div id="rodape">
+			<h4 align="center" >@2015 Gerência de Configuração</h4>
+		</div>
 	
 </body>
 </html>
